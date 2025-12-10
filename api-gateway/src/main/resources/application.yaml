@@ -1,0 +1,17 @@
+server:
+  port: 8080 # Cổng chính mà người dùng sẽ truy cập
+
+spring:
+  application:
+    name: api-gateway # Tên định danh trên Eureka
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # Cho phép tự động tìm đường dựa trên tên Service (Magic!)
+          lower-case-service-id: true # Chuyển tên service thành chữ thường (dễ gõ URL)
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # Địa chỉ của "Thư ký" Eureka

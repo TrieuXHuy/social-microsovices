@@ -1,0 +1,23 @@
+server:
+  port: 8082 # Chạy cổng 8082 (Né 8081 của User ra)
+
+spring:
+  application:
+    name: post-service
+  datasource:
+    # Kết nối vào post_db
+    url: jdbc:mysql://localhost:3307/post_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
