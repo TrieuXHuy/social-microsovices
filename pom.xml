@@ -28,7 +28,6 @@
         <module>discovery-server</module>
         <module>api-gateway</module>
         <module>user-service</module>
-        <module>business-service</module>
         <module>common-library</module>
     </modules>
 
