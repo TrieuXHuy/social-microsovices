@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ecommerce</groupId>
-        <artifactId>ecommerce-social-platform</artifactId>
+        <artifactId>ecommerce-accounting</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

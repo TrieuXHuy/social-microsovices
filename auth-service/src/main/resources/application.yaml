@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    web:
+      pageable:
+        # Quan trọng: Thiết lập để Pageable Resolution bắt đầu từ 1
+        one-indexed-parameters: true
+  application:
+    name: auth-service
+  datasource:
+    # Kết nối vào MySQL Docker vừa bật
+    url: jdbc:mysql://localhost:3307/user_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root  # Pass mặc định trong file docker-compose của bạn
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Tự động tạo bảng user khi chạy
+    show-sql: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
