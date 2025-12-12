@@ -1,7 +1,6 @@
 package com.ecommerce.shop_service.config;
 
-import com.nimbusds.jose.util.Base64;
-import com.thoughtworks.xstream.core.SecurityUtils;
+import com.ecommerce.shop_service.security.GatewayAccessFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,14 +8,7 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
-import org.springframework.security.oauth2.jwt.JwtException;
-import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 
 @Configuration
 public class SecurityConfig {
@@ -24,14 +16,20 @@ public class SecurityConfig {
     @Value("${jwt.signerKey}")
     private String signerKey;
 
+    private final GatewayAccessFilter gatewayAccessFilter;
+
+    public SecurityConfig(GatewayAccessFilter gatewayAccessFilter) {
+        this.gatewayAccessFilter = gatewayAccessFilter;
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
-
+                .addFilterBefore(gatewayAccessFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(req -> req
-//                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/").permitAll()
                         .requestMatchers("/api/v1/products/**").permitAll()
                         .anyRequest().authenticated()
                 )

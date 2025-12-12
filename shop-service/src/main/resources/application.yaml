@@ -2,6 +2,11 @@ server:
   port: 8082 # Auth 8081, Gateway 8080
 
 spring:
+  data:
+    web:
+      pageable:
+        # Quan trọng: Thiết lập để Pageable Resolution bắt đầu từ 1
+        one-indexed-parameters: true
   application:
     name: shop-service
   datasource:
