@@ -4,17 +4,17 @@ import com.ecommerce.auth_service.domain.User;
 import com.ecommerce.auth_service.dto.auth.AuthRequest;
 import com.ecommerce.auth_service.dto.auth.AuthResponse;
 import com.ecommerce.auth_service.dto.auth.RegisterRequest;
+import com.ecommerce.auth_service.dto.auth.UserLoginDto;
 import com.ecommerce.auth_service.security.JwtProperties;
 import com.ecommerce.auth_service.security.SecurityUtils;
 import com.ecommerce.auth_service.service.AuthService;
 import com.ecommerce.auth_service.repository.UserRepository;
-import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwsHeader;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -65,7 +65,16 @@ public class AuthServiceImpl implements AuthService {
 
         String accessToken = createToken(user.getEmail(), user.getId());
 
-        return new AuthResponse(accessToken);
+
+
+        AuthResponse response = new AuthResponse();
+        UserLoginDto userLoginDto = new UserLoginDto(user.getId(), user.getEmail(), user.getUsername());
+
+        response.setAccessToken(accessToken);
+        response.setRefreshToken(null);
+        response.setUser(userLoginDto);
+        response.setExpiresIn(jwtProperties.getTokenExpiration());
+        return response;
     }
 
     @Override

@@ -6,6 +6,8 @@ import com.ecommerce.auth_service.dto.user.UserResponse;
 import com.ecommerce.auth_service.repository.UserRepository;
 import com.ecommerce.auth_service.service.UserService;
 import com.ecommerce.auth_service.service.mapper.UserMapper;
+import com.ecommerce.auth_service.web.rest.errors.EmailAlreadyExistsException;
+import com.ecommerce.auth_service.web.rest.errors.ResourceNotFoundException;
 import com.ecommerce.common.dto.Pagination;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,9 +15,6 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -36,7 +35,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponse createUser(UserRequest request) {
         if (userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email already exists: " + request.getEmail());
+            throw new EmailAlreadyExistsException("Email already exists: " + request.getEmail());
         }
 
         User user = userMapper.toEntity(request);
@@ -62,7 +61,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(readOnly = true)
     public UserResponse getUserById(Long id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
 
         return userMapper.toResponse(user);
     }
@@ -70,12 +69,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserResponse updateUser(Long id, UserRequest request) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
 
         if (request.getEmail() != null
                 && !request.getEmail().equals(user.getEmail())
                 && userRepository.existsByEmail(request.getEmail())) {
-            throw new RuntimeException("Email already taken by another user");
+            throw new ResourceNotFoundException("Email already taken by another user");
         }
 
         userMapper.updateUserFromRequest(request, user);
@@ -87,7 +86,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long id) {
         if (!userRepository.existsById(id)) {
-            throw new RuntimeException("User not found with id: " + id);
+            throw new ResourceNotFoundException("User not found with id: " + id);
         }
         userRepository.deleteById(id);
     }
