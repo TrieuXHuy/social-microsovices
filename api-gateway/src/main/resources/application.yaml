@@ -11,6 +11,9 @@ spring:
           enabled: true # Cho phép tự động tìm đường dựa trên tên Service (Magic!)
           lower-case-service-id: true # Chuyển tên service thành chữ thường (dễ gõ URL)
 
+      default-filters:
+        - AddRequestHeader=X-Gateway-Secret, ecommerce-accounting
+
 eureka:
   client:
     serviceUrl:

@@ -29,6 +29,7 @@
         <module>api-gateway</module>
         <module>auth-service</module>
         <module>common-library</module>
+        <module>shop-service</module>
     </modules>
 
     <dependencyManagement>

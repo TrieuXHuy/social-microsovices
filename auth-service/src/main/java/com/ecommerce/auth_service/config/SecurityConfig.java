@@ -1,5 +1,6 @@
 package com.ecommerce.auth_service.config;
 
+import com.ecommerce.auth_service.security.GatewayAccessFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -14,9 +15,12 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     private final AuthenticationEntryPoint authenticationEntryPoint;
+    private final GatewayAccessFilter gatewayAccessFilter;
 
-    public SecurityConfig(AuthenticationEntryPoint authenticationEntryPoint) {
+    public SecurityConfig(AuthenticationEntryPoint authenticationEntryPoint,
+                          GatewayAccessFilter gatewayAccessFilter) {
         this.authenticationEntryPoint = authenticationEntryPoint;
+        this.gatewayAccessFilter = gatewayAccessFilter;
     }
 
     @Bean
@@ -29,6 +33,7 @@ public class SecurityConfig {
         http
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
+                .addFilterBefore(gatewayAccessFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(authorize -> authorize
                         // Thêm "/error" vào đây để xem lỗi thật sự là gì
                         .requestMatchers("/", "/api/v1/auth/**", "/error").permitAll()

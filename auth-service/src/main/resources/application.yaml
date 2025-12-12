@@ -11,7 +11,7 @@ spring:
     name: auth-service
   datasource:
     # Kết nối vào MySQL Docker vừa bật
-    url: jdbc:mysql://localhost:3307/user_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3307/ecommerce_auth?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: root  # Pass mặc định trong file docker-compose của bạn
     driver-class-name: com.mysql.cj.jdbc.Driver
