@@ -4,49 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fe4fe8c-a94c-4b1a-8736-124e5678c32a" name="Changes" comment="init security shop service">
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/domain/AbstractAuditingEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/domain/Category.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/domain/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/domain/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/domain/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/domain/enumeration/OrderStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/category/CategoryRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/category/CategoryResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/order/OrderItemRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/order/OrderItemResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/order/OrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/order/OrderResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/orderItem/OrderItemResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/product/ProductRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/dto/product/ProductResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/repository/CategoryRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/repository/OrderItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/repository/OrderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/security/GatewayAccessFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/CategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/OrderItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/OrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/impl/OrderItemServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/mapper/CategoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/mapper/OrderItemMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/mapper/OrderMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/service/mapper/ProductMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/web/res/CategoryResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/web/res/OrderItemResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/web/res/OrderResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/web/res/ProductResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff281f82-9182-4661-860a-edfb49fdda74.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ff281f82-9182-4661-860a-edfb49fdda74.xml" afterDir="false" />
+    <list default="true" id="9fe4fe8c-a94c-4b1a-8736-124e5678c32a" name="Changes" comment="finish domain, crud shop service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-service/src/main/java/com/ecommerce/shop_service/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-service/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +199,7 @@
       <workItem from="1765501650375" duration="31000" />
       <workItem from="1765502548923" duration="12751000" />
       <workItem from="1765521545781" duration="7936000" />
-      <workItem from="1765549354652" duration="7806000" />
+      <workItem from="1765549354652" duration="9021000" />
     </task>
     <task id="LOCAL-00001" summary="itin">
       <option name="closed" value="true" />
@@ -290,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765529777763</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="finish domain, crud shop service">
+      <option name="closed" value="true" />
+      <created>1765557190060</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765557190060</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,7 +280,8 @@
     <MESSAGE value="finish custom exception" />
     <MESSAGE value="init shop service" />
     <MESSAGE value="init security shop service" />
-    <option name="LAST_COMMIT_MESSAGE" value="init security shop service" />
+    <MESSAGE value="finish domain, crud shop service" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish domain, crud shop service" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
