@@ -114,4 +114,16 @@ public class GlobalException {
         );
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ErrorVM> handleBadCredentialsException(BadCredentialsException ex, HttpServletRequest request) {
+        ErrorVM error = new ErrorVM(
+                HttpStatus.UNAUTHORIZED.value(), // Trả về 401 chuẩn hơn
+                "Unauthorized",
+                "Tài khoản hoặc mật khẩu không chính xác", // Message tiếng Việt tùy chỉnh
+                request.getRequestURI(),
+                null
+        );
+        return new ResponseEntity<>(error, HttpStatus.UNAUTHORIZED);
+    }
 }
